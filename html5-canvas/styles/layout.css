@@ -1,0 +1,25 @@
+.topbar {
+  background-color: #A00000;
+  float: left;
+  height: 10%;
+  width: 100%;
+}
+
+.nav-panel {
+  background-color: #201D17;
+  float: left;
+  height: 90%;
+  width: 25%;
+}
+
+#nav-canvas, #content-canvas {
+  height: 100%;
+  width: 100%;
+}
+
+.content-panel {
+  background-color: #3B3530;
+  float: left;
+  height: 90%;
+  width: 75%;
+}

@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <title>Netflix</title>
+    <link rel="stylesheet" type="text/css" href="./styles/layout.css" />
+  </head>  
+  <body style='position: fixed; width: 1024px; height: 576px;'>
+    <div class='topbar'></div>
+    <div class='nav-panel'>
+      <canvas id='nav-canvas' width='256px', height='518px'> You can't see canvas tags</canvas>
+    </div>
+    <div class='content-panel'>
+      <canvas id='content-canvas' width='768px' height='518px'> You can't see canvas tags</canvas>
+    </div>
+  </body>
+  <script type='text/javascript' src='./libs/stativus.js'></script>
+  <script type='text/javascript' src='./libs/navigation.js'></script>
+  <script type='text/javascript' src='./libs/content.js'></script>
+  <script type="text/javascript">
+    var setupKeyEvents = function(){
+      var body = window.document.body, myStatechart;
+      myStatechart = window.myStatechart;
+      if (body){
+        body.addEventListener('keydown', function(evt){
+          var matchString = 'Up,Down,Right,Left,Enter';
+          var kid = evt.keyIdentifier;
+          if (matchString.indexOf(kid)>-1) myStatechart.sendEvent('key'+kid);
+        },false);
+      }
+      myStatechart.initStates({'default': 'base', 'content': 'base_content'});
+    }
+    setupKeyEvents();
+  </script>
+</html>
