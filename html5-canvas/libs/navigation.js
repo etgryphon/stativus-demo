@@ -1,12 +1,12 @@
 /**
   main code for netflix
 */
-/*globals Statechart NetFlixUI myStatechart*/
-var NetFlixUI = NetFlixUI || window.NetFlixUI || {};
-window.NetFlixUI = NetFlixUI;
+/*globals Statechart RedFlixUI myStatechart*/
+var RedFlixUI = RedFlixUI || window.RedFlixUI || {};
+window.RedFlixUI = RedFlixUI;
 
 // Setup code
-NetFlixUI.NavUtils = {
+RedFlixUI.NavUtils = {
   // Positions
   navLeft: 15,
   navWidth: 226,
@@ -54,7 +54,7 @@ myStatechart.addState('base', {
   enterState: function(){
 	  var util, color;
 	  
-	  util = NetFlixUI.NavUtils;
+	  util = RedFlixUI.NavUtils;
 	  color = util.navNormal;
 	  
 	  util.drawButtonNavButton(color, util.suggestionsTop, "Suggestions");
@@ -69,12 +69,12 @@ myStatechart.addState('suggestions', {
   parentState: 'base',
 	// Base Events
 	enterState: function(){
-	  var util = NetFlixUI.NavUtils;
+	  var util = RedFlixUI.NavUtils;
 	  util.drawButtonNavButton(util.navSelected, util.suggestionsTop, "Suggestions", util.navSelectedTextColor);
 	  this.sendEvent('selectContentFor', 'suggestions');	  
 	},
 	exitState: function(){ 
-	  var util = NetFlixUI.NavUtils;
+	  var util = RedFlixUI.NavUtils;
 	  util.drawButtonNavButton(util.navNormal, util.suggestionsTop, "Suggestions");
 	},
 	keyDown: function(){
@@ -91,11 +91,11 @@ myStatechart.addState('suggestions_entered', {
   parentState: 'base',
 	// Base Events
 	enterState: function(){
-	  var util = NetFlixUI.NavUtils;
+	  var util = RedFlixUI.NavUtils;
 	  util.drawButtonNavButton(util.navEntered, util.suggestionsTop, "Suggestions", util.navEnteredTextColor);
 	},
 	exitState: function(){ 
-	  var util = NetFlixUI.NavUtils;
+	  var util = RedFlixUI.NavUtils;
 	  util.drawButtonNavButton(util.navNormal, util.suggestionsTop, "Suggestions");
 	},
 	exitSelected: function(){
@@ -108,12 +108,12 @@ myStatechart.addState('recent_watched', {
   parentState: 'base',
 	// Base Events
 	enterState: function(){
-	  var util = NetFlixUI.NavUtils;
+	  var util = RedFlixUI.NavUtils;
 	  util.drawButtonNavButton(util.navSelected, util.recent_watchedTop, "Recently Watched", util.navSelectedTextColor);
 	  this.sendEvent('selectContentFor', 'recent_watched');
 	},
 	exitState: function(){ 
-	  var util = NetFlixUI.NavUtils;
+	  var util = RedFlixUI.NavUtils;
 	  util.drawButtonNavButton(util.navNormal, util.recent_watchedTop, "Recently Watched");
 	},
 	
@@ -134,11 +134,11 @@ myStatechart.addState('recent_watched_entered', {
   parentState: 'base',
 	// Base Events
 	enterState: function(){
-	  var util = NetFlixUI.NavUtils;
+	  var util = RedFlixUI.NavUtils;
 	  util.drawButtonNavButton(util.navEntered, util.recent_watchedTop, "Recently Watched", util.navEnteredTextColor);
 	},
 	exitState: function(){ 
-	  var util = NetFlixUI.NavUtils;
+	  var util = RedFlixUI.NavUtils;
 	  util.drawButtonNavButton(util.navNormal, util.recent_watchedTop, "Recently Watched");
 	},
 	exitSelected: function(){
@@ -151,12 +151,12 @@ myStatechart.addState('new_releases', {
   parentState: 'base',
 	// Base Events
 	enterState: function(){
-	  var util = NetFlixUI.NavUtils;
+	  var util = RedFlixUI.NavUtils;
 	  util.drawButtonNavButton(util.navSelected, util.new_releasesTop, "New Releases", util.navSelectedTextColor);
 	  this.sendEvent('selectContentFor', 'new_releases');
 	},
 	exitState: function(){ 
-	  var util = NetFlixUI.NavUtils;
+	  var util = RedFlixUI.NavUtils;
 	  util.drawButtonNavButton(util.navNormal, util.new_releasesTop, "New Releases");
 	},
 	
@@ -177,11 +177,11 @@ myStatechart.addState('new_releases_entered', {
   parentState: 'base',
 	// Base Events
 	enterState: function(){
-	  var util = NetFlixUI.NavUtils;
+	  var util = RedFlixUI.NavUtils;
 	  util.drawButtonNavButton(util.navEntered, util.new_releasesTop, "New Releases", util.navEnteredTextColor);
 	},
 	exitState: function(){ 
-	  var util = NetFlixUI.NavUtils;
+	  var util = RedFlixUI.NavUtils;
 	  util.drawButtonNavButton(util.navNormal, util.new_releasesTop, "New Releases");
 	},
 	exitSelected: function(){
@@ -193,12 +193,12 @@ myStatechart.addState('instant_queue', {
   parentState: 'base',
 	// Base Events
 	enterState: function(){
-	  var util = NetFlixUI.NavUtils;
+	  var util = RedFlixUI.NavUtils;
 	  util.drawButtonNavButton(util.navSelected, util.instant_queueTop, "Instant Queue", util.navSelectedTextColor);
 	  this.sendEvent('selectContentFor', 'instant_queue');
 	},
 	exitState: function(){ 
-	  var util = NetFlixUI.NavUtils;
+	  var util = RedFlixUI.NavUtils;
 	  util.drawButtonNavButton(util.navNormal, util.instant_queueTop, "Instant Queue");
 	},
 	
@@ -216,11 +216,11 @@ myStatechart.addState('instant_queue_entered', {
   parentState: 'base',
 	// Base Events
 	enterState: function(){
-	  var util = NetFlixUI.NavUtils;
+	  var util = RedFlixUI.NavUtils;
 	  util.drawButtonNavButton(util.navEntered, util.instant_queueTop, "Instant Queue", util.navEnteredTextColor);
 	},
 	exitState: function(){ 
-	  var util = NetFlixUI.NavUtils;
+	  var util = RedFlixUI.NavUtils;
 	  util.drawButtonNavButton(util.navNormal, util.instant_queueTop, "Instant Queue");
 	},
 	exitSelected: function(){

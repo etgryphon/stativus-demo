@@ -1,9 +1,9 @@
-/*globals Statechart NetFlixUI myStatechart*/
+/*globals Statechart RedFlixUI myStatechart*/
 
-var NetFlixUI = NetFlixUI || window.NetFlixUI || {};
-window.NetFlixUI = NetFlixUI;
+var RedFlixUI = RedFlixUI || window.RedFlixUI || {};
+window.RedFlixUI = RedFlixUI;
 
-NetFlixUI.BoxArtStore = {
+RedFlixUI.BoxArtStore = {
   suggestions: [
     { name: 'Crank 2: High Voltage', img: './images/crank_2.jpg'},
     { name: 'Freak Out', img: './images/freak_out.jpg'},
@@ -41,7 +41,7 @@ NetFlixUI.BoxArtStore = {
 };
 
 // Setup code
-NetFlixUI.ContentUtils = {
+RedFlixUI.ContentUtils = {
   // Area
   contentWidth: '768',
   contentHeight: '518',
@@ -174,19 +174,19 @@ NetFlixUI.ContentUtils = {
 // This is the general selected config object
 // that will be used in all of the *_entered 
 // States
-NetFlixUI.genCon = {
+RedFlixUI.genCon = {
 	keyRight: function(){
-	  var utils = NetFlixUI.ContentUtils;
+	  var utils = RedFlixUI.ContentUtils;
 	  this._itemIndex = utils.moveRight(this._boxArt, this._itemIndex);
 	},
 	
 	keyUp: function(){
-	  var utils = NetFlixUI.ContentUtils;
+	  var utils = RedFlixUI.ContentUtils;
 	  this._itemIndex = utils.moveUp(this._boxArt, this._itemIndex);
 	},
 	
 	keyDown: function(){
-	  var utils = NetFlixUI.ContentUtils;
+	  var utils = RedFlixUI.ContentUtils;
 	  this._itemIndex = utils.moveDown(this._boxArt, this._itemIndex);
 	},
 	
@@ -216,14 +216,14 @@ myStatechart.addState('suggestions_content', {
   
 	// Base Events
 	enterState: function(){
-	  var boxArt = NetFlixUI.BoxArtStore.suggestions || [], 
-	      util = NetFlixUI.ContentUtils;
+	  var boxArt = RedFlixUI.BoxArtStore.suggestions || [], 
+	      util = RedFlixUI.ContentUtils;
 	  util.drawContentTitleAndBoxArt('Suggestions', boxArt); 
 	},
 	keyRight: function(){ this.goToState('suggestions_entered'); },
 	keyEnter: function(){ this.goToState('suggestions_entered'); }
 });
-myStatechart.addState('suggestions_entered', NetFlixUI.genCon, {
+myStatechart.addState('suggestions_entered', RedFlixUI.genCon, {
   globalConcurrentState: 'content',
   parentState: 'base_content',
   
@@ -231,15 +231,15 @@ myStatechart.addState('suggestions_entered', NetFlixUI.genCon, {
   _boxArt: null,
 	// Base Events
 	enterState: function(){
-	  var util = NetFlixUI.ContentUtils, idx = this._itemIndex || 0,
-	      bArts = NetFlixUI.BoxArtStore.suggestions,
+	  var util = RedFlixUI.ContentUtils, idx = this._itemIndex || 0,
+	      bArts = RedFlixUI.BoxArtStore.suggestions,
 	      boxArt = bArts[idx];
 	  this._boxArt = bArts;
     util.drawBoxArtIn(idx, boxArt.img, true);
 	},
 	
 	keyLeft: function(){
-	  var utils = NetFlixUI.ContentUtils, ba, bArts,
+	  var utils = RedFlixUI.ContentUtils, ba, bArts,
 	      pos = this._itemIndex || 0;
 	  if ((pos%4) === 0){
 	    this.goToState('suggestions_content');
@@ -260,14 +260,14 @@ myStatechart.addState('recent_watched_content', {
   _position: [0,0],
 	// Base Events
 	enterState: function(){
-  	  var boxArt = NetFlixUI.BoxArtStore.recent_watched || [], 
-  	      util = NetFlixUI.ContentUtils;
+  	  var boxArt = RedFlixUI.BoxArtStore.recent_watched || [], 
+  	      util = RedFlixUI.ContentUtils;
   	  util.drawContentTitleAndBoxArt('Recently Watched', boxArt); 
   	},
     keyRight: function(){ this.goToState('recent_watched_entered'); },
     keyEnter: function(){ this.goToState('recent_watched_entered'); }
 });
-myStatechart.addState('recent_watched_entered', NetFlixUI.genCon, {
+myStatechart.addState('recent_watched_entered', RedFlixUI.genCon, {
   globalConcurrentState: 'content',
   parentState: 'base_content',
   
@@ -275,14 +275,14 @@ myStatechart.addState('recent_watched_entered', NetFlixUI.genCon, {
   _boxArt: null,
 	// Base Events
 	enterState: function(){
-	  var util = NetFlixUI.ContentUtils, idx = this._itemIndex || 0,
-	      bArts = NetFlixUI.BoxArtStore.recent_watched,
+	  var util = RedFlixUI.ContentUtils, idx = this._itemIndex || 0,
+	      bArts = RedFlixUI.BoxArtStore.recent_watched,
 	      boxArt = bArts[idx];
 	  this._boxArt = bArts;
     util.drawBoxArtIn(idx, boxArt.img, true);
 	},
 	keyLeft: function(){
-	  var utils = NetFlixUI.ContentUtils, ba, bArts,
+	  var utils = RedFlixUI.ContentUtils, ba, bArts,
 	      pos = this._itemIndex || 0;
 	  if ((pos%4) === 0){
 	    this.goToState('suggestions_content');
@@ -301,14 +301,14 @@ myStatechart.addState('new_releases_content', {
   parentState: 'base_content',
 	// Base Events
 	enterState: function(){
-	  var boxArt = NetFlixUI.BoxArtStore.new_releases || [], 
-	      util = NetFlixUI.ContentUtils;
+	  var boxArt = RedFlixUI.BoxArtStore.new_releases || [], 
+	      util = RedFlixUI.ContentUtils;
 	  util.drawContentTitleAndBoxArt('New Releases', boxArt); 
 	},
 	keyRight: function(){ this.goToState('new_releases_entered'); },
   keyEnter: function(){ this.goToState('new_releases_entered'); }
 });
-myStatechart.addState('new_releases_entered', NetFlixUI.genCon, {
+myStatechart.addState('new_releases_entered', RedFlixUI.genCon, {
   globalConcurrentState: 'content',
   parentState: 'base_content',
   
@@ -316,14 +316,14 @@ myStatechart.addState('new_releases_entered', NetFlixUI.genCon, {
   _boxArt: null,
 	// Base Events
 	enterState: function(){
-	  var util = NetFlixUI.ContentUtils, idx = this._itemIndex || 0,
-	      bArts = NetFlixUI.BoxArtStore.new_releases,
+	  var util = RedFlixUI.ContentUtils, idx = this._itemIndex || 0,
+	      bArts = RedFlixUI.BoxArtStore.new_releases,
 	      boxArt = bArts[idx];
 	  this._boxArt = bArts;
     util.drawBoxArtIn(idx, boxArt.img, true);
 	},
 	keyLeft: function(){
-	  var utils = NetFlixUI.ContentUtils, ba, bArts,
+	  var utils = RedFlixUI.ContentUtils, ba, bArts,
 	      pos = this._itemIndex || 0;
 	  if ((pos%4) === 0){
 	    this.goToState('new_releases_content');
@@ -341,14 +341,14 @@ myStatechart.addState('instant_queue_content', {
   parentState: 'base_content',
 	// Base Events
 	enterState: function(){
-	  var boxArt = NetFlixUI.BoxArtStore.instant_queue || [], 
-	      util = NetFlixUI.ContentUtils;
+	  var boxArt = RedFlixUI.BoxArtStore.instant_queue || [], 
+	      util = RedFlixUI.ContentUtils;
 	  util.drawContentTitleAndBoxArt('Instant Queue', boxArt); 
 	},
   keyRight: function(){ this.goToState('instant_queue_entered'); },
   keyEnter: function(){ this.goToState('instant_queue_entered'); }
 });
-myStatechart.addState('instant_queue_entered', NetFlixUI.genCon, {
+myStatechart.addState('instant_queue_entered', RedFlixUI.genCon, {
   globalConcurrentState: 'content',
   parentState: 'base_content',
   
@@ -356,14 +356,14 @@ myStatechart.addState('instant_queue_entered', NetFlixUI.genCon, {
   _boxArt: null,
 	// Base Events
 	enterState: function(){
-	  var util = NetFlixUI.ContentUtils, idx = this._itemIndex || 0,
-	      bArts = NetFlixUI.BoxArtStore.instant_queue,
+	  var util = RedFlixUI.ContentUtils, idx = this._itemIndex || 0,
+	      bArts = RedFlixUI.BoxArtStore.instant_queue,
 	      boxArt = bArts[idx];
 	  this._boxArt = bArts;
     util.drawBoxArtIn(idx, boxArt.img, true);
 	},
 	keyLeft: function(){
-	  var utils = NetFlixUI.ContentUtils, ba, bArts,
+	  var utils = RedFlixUI.ContentUtils, ba, bArts,
 	      pos = this._itemIndex || 0;
 	  if ((pos%4) === 0){
 	    this.goToState('instant_queue_content');
