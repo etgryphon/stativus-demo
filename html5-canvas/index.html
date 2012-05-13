@@ -12,22 +12,23 @@
       <canvas id='content-canvas' width='768px' height='518px'> You can't see canvas tags</canvas>
     </div>
   </body>
-  <script type='text/javascript' src='./libs/stativus-min.js'></script>
+  <script type='text/javascript' src='http://code.jquery.com/jquery-1.7.2.min.js'></script>
+  <script type='text/javascript' src='./libs/stativus.js'></script>
   <script type='text/javascript' src='./libs/navigation.js'></script>
   <script type='text/javascript' src='./libs/content.js'></script>
   <script type="text/javascript">
-    var setupKeyEvents = function(){
-      var body = window.document.body, myStatechart;
-      myStatechart = window.myStatechart;
-      if (body){
-        body.addEventListener('keydown', function(evt){
-          var matchString = 'Up,Down,Right,Left,Enter';
-          var kid = evt.keyIdentifier;
-          if (matchString.indexOf(kid)>-1) myStatechart.sendEvent('key'+kid);
-        },false);
-      }
+    $(document).ready(function() {
+      // Handler for .ready() called.
+      var myStatechart = window.myStatechart;
       myStatechart.initStates({'default': 'base', 'content': 'base_content'});
-    }
-    setupKeyEvents();
+    });
+
+    $(document).bind('keydown', function(evt){
+      var myStatechart = window.myStatechart, kid,
+          keyKey = {'38':'Up', '39': 'Right', '40':'Down', '37': 'Left', '13': 'Enter'};
+      console.log('Which: ', evt.which);    
+      kid = keyKey[evt.which];
+      if (kid) myStatechart.sendEvent('key'+kid);
+    });
   </script>
 </html>

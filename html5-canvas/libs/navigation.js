@@ -1,7 +1,7 @@
 /**
   main code for netflix
 */
-/*globals Statechart RedFlixUI myStatechart*/
+/*globals Stativus Statechart RedFlixUI myStatechart*/
 var RedFlixUI = RedFlixUI || window.RedFlixUI || {};
 window.RedFlixUI = RedFlixUI;
 
@@ -48,7 +48,7 @@ RedFlixUI.NavUtils = {
 };
 
 // Statechart code
-var myStatechart = myStatechart || window.myStatechart || Statechart.create();
+var myStatechart = window.myStatechart || Stativus.createStatechart();
 myStatechart.addState('base', {
   initialSubstate: 'suggestions',
   enterState: function(){

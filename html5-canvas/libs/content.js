@@ -195,8 +195,7 @@ RedFlixUI.genCon = {
 	  alert([ba.name, ba.img].join('\n'));
 	}
 };
-
-var myStatechart = myStatechart || window.myStatechart || Statechart.create();
+var myStatechart = window.myStatechart || Stativus.createStatechart();
 myStatechart.addState('base_content', {
   globalConcurrentState: 'content',
   initialSubstate: 'suggestions_content',
