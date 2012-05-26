@@ -1,0 +1,106 @@
+//- Late loading JS  
+!!!
+html(lang='en')
+  head
+    meta(charset="utf-8")
+    title Stativus Demos
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(name="description", content="Stativus is a browser-independent, framework-independent micro-library that provides full statechart functionality to your web application or web page.")
+    meta (name="author", content="Evin Grano")
+    meta (name="keywords", content="statechart,javascript,micro,library,html,jquery,js,demo")
+    
+    // Le styles
+    link(href="./assets/css/bootstrap.css", rel="stylesheet")
+    style(type="text/css")
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+      .demo-info .hero-unit {
+        height: 200px;
+      }
+    link(href="./assets/css/bootstrap-responsive.css", rel="stylesheet")
+
+    // Le HTML5 shim, for IE6-8 support of HTML5 elements
+    //if lt IE 9
+      script(src="http://html5shim.googlecode.com/svn/trunk/html5.js")
+    
+    // Le fav and touch icons
+    link(rel="shortcut icon", href="../assets/ico/favicon.ico")
+    link(rel="apple-touch-icon-precomposed", sizes="144x144", href="./assets/ico/apple-touch-icon-144-precomposed.png")
+    link(rel="apple-touch-icon-precomposed", sizes="114x114", href="./assets/ico/apple-touch-icon-114-precomposed.png")
+    link(rel="apple-touch-icon-precomposed", sizes="72x72", href="./assets/ico/apple-touch-icon-72-precomposed.png")
+    link(rel="apple-touch-icon-precomposed", href="./assets/ico/apple-touch-icon-57-precomposed.png")
+    
+    
+  body
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container-fluid
+          a.btn.btn-navbar(data-toggle="collapse", data-target=".nav-collapse")
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.brand(href="#") Stativus Demos
+    
+    .container-fluid
+      .row-fluid
+        .span9.home-page
+          .hero-unit
+            h1 Welcome to Stativus Demos!
+            p Stativus is a browser-independent, framework-independent micro-library that provides full statechart functionality to your web application or web page.
+              h4 Version: 
+                span(style='font-weight: normal') 0.6
+            .pull-right
+              a.btn.btn-success.btn-large(href='http://www.stativ.us') Read Documentation &raquo;
+              
+          .row-fluid
+            .span6.demo-info
+              .hero-unit
+                h2 Stativus Web Page
+                p The main Stativus Documentation site uses Stativus
+                p Uses JQuery
+                p
+                  a.btn.btn-primary.pull-right(href="http://www.stativ.us") Run Demo&raquo;
+            //- span6
+            
+            .span6.demo-info
+              .hero-unit
+                h2 RedFlix
+                p Fake Movie Application for your TV.
+                p Uses JQuery and HTML5 Canvas Only.
+                p Navigate with the Left, Right, Up, Down and Enter Keys \(No Mouse\)
+                p
+                  a.btn.btn-primary.pull-right(href="./html5-canvas/index.html") Run Demo&raquo;
+            //- span6
+          //- row-fluid
+        //- span9
+      //- row-fluid
+
+      hr
+
+      footer
+        p &copy; Evin Grano 2012
+
+    // Le javascript
+    // ==================================================
+    // Placed at the end of the document so the pages load faster
+    script(src="./assets/js/jquery.js")
+    script(src="./assets/js/stativus-evt-min.js")
+    script(src="./assets/js/states.js")
+    script(src="./assets/js/bootstrap-transition.js")
+    script(src="./assets/js/bootstrap-alert.js")
+    script(src="./assets/js/bootstrap-modal.js")
+    script(src="./assets/js/bootstrap-dropdown.js")
+    script(src="./assets/js/bootstrap-scrollspy.js")
+    script(src="./assets/js/bootstrap-tab.js")
+    script(src="./assets/js/bootstrap-tooltip.js")
+    script(src="./assets/js/bootstrap-popover.js")
+    script(src="./assets/js/bootstrap-button.js")
+    script(src="./assets/js/bootstrap-collapse.js")
+    script(src="./assets/js/bootstrap-carousel.js")
+    script(src="./assets/js/bootstrap-typeahead.js")
+    
